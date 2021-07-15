@@ -4,7 +4,8 @@
   "description": "",
   "main": "push.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/denizburduroglu/push-notification/issues"
   },
-  "homepage": "https://github.com/denizburduroglu/push-notification#readme"
+  "homepage": "https://github.com/denizburduroglu/push-notification#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "swagger-ui-express": "^4.1.6",
+    "web-push": "^3.4.5"
+  }
 }

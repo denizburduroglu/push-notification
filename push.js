@@ -1,9 +1,11 @@
 // Install express server
 const PORT = process.env.PORT || '8888';
 const express = require('express');
-const path = require('path');
 const app = express();
 
+// Swagger documentation
+const swaggerUI = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 // Push notification details
 const webpush = require('web-push');
@@ -13,8 +15,15 @@ const vapidKeys = webpush.generateVAPIDKeys();
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
-  }));
-app.post('/subscribe', (req, res) => {
+}));
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
+app.get("/", (req, res) => {
+    return res.status(200).send({
+        success: "true"
+    });
+});
+app.post('/notification', (req, res) => {
     let sub = req.body;
     res.set('Content-Type', 'application/json');
     webpush.setVapidDetails(
@@ -43,3 +52,7 @@ app.post('/subscribe', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+app.listen(PORT, () => {
+    console.log("server listening on port " + PORT + "!");
+})

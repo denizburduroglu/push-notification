@@ -1,0 +1,61 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "My User Project CRUD",
+        "description": "This is a node.js express web app that handles push notifications.",
+        "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:8888",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "notification",
+            "description": "Interact with push notifications"
+        }
+    ],
+    "schemes": ["http", "https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/notification" : {
+            "post": {
+                "tags": ["notification"],
+                "summary": "Send push subscription and message to service worker",
+                "description": "",
+                "operationId": "addPet",
+                "consumes": [
+                    "application/json",
+                    "application/xml"
+                ],
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ]
+            }
+        }
+    },
+    "definitions" : {
+        "Notification" : {
+            "type": "object",
+            "required": [
+                "endpoint",
+                "options"
+            ],
+            "properties" : {
+                "endpoint": {
+                    "type": "string"
+                },
+                "expirationTime": {
+                    "type": "string"
+                },
+                "options": {
+                    "type": "array"
+                }
+            }
+        }
+    }
+}
