@@ -1,6 +1,7 @@
 // Install express server
 const PORT = process.env.PORT || '8888';
 const express = require('express');
+const cors = require("cors");
 const app = express();
 
 // Swagger documentation
@@ -13,6 +14,7 @@ const vapidPublicKey = 'BPFJMQ-YaJTkX99MBgc9tW9ov06LQ1-KcBzeR_5kkYPKZ-XY1Syy_7AT
 const vapidPrivateKey = 'k7gCqKEHSDWoQ26wZXqr8nmq_vMOfghAWvyKne8Rwoo';
 
 // Hanlde push notifications from app to send to service worker
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
