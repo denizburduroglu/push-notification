@@ -9,7 +9,7 @@
         "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "localhost:8888",
+    "host": "https://denizb-push-notification.herokuapp.com",
     "basePath": "/",
     "tags": [
         {
