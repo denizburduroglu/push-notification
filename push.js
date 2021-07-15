@@ -43,3 +43,6 @@ app.post('/subscribe', (req, res) => {
             res.sendStatus(500);
         });
 });
+
+app.set('port', PORT);
+app.listen(PORT);
